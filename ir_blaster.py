@@ -708,7 +708,7 @@ class SONY_20_TX(SONY_ABC):
         super().__init__(pin, 20, freq, verbose)
 
 class IRBlaster:
-    def __init__(self, rx_pin=D3_PIN, tx_pin=D4_PIN, json_file='ir_codes.json'):
+    def __init__(self, rx_pin, tx_pin, json_file='ir_codes.json'):
         self.rx_pin = Pin(rx_pin, Pin.IN)
         self.tx_pin = Pin(tx_pin, Pin.OUT)
         self.file = json_file
@@ -766,7 +766,7 @@ class IRBlaster:
                 return True
         return False
 
-    async def scan(self, signal_name):
+    def scan(self, signal_name):
         self.received = False
         self.result = {}
         self.tx_pin.value(0)
@@ -814,7 +814,7 @@ class IRBlaster:
         self._save_to_signal_data()
 
 
-    async def send(self, signal_name):
+    def send(self, signal_name):
         match = None
         for d in self.signal_data:
             if d[0] == signal_name:

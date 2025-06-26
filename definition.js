@@ -222,7 +222,7 @@ Blockly.Blocks['yolobit_ir_blaster_scan'] = {
 
 Blockly.Python['yolobit_ir_blaster_scan'] = function (block) {
   var signal_number = block.getFieldValue('MESSAGE');  // Get the selected number (1-10)
-  var code = 'await ir_blaster.scan("' + signal_number + '")\n';  // Use the selected number as input
+  var code = 'ir_blaster.scan("' + signal_number + '")\n';  // Use the selected number as input
   return code;
 };
 
@@ -272,7 +272,7 @@ Blockly.Blocks['yolobit_ir_blaster_send'] = {
 
 Blockly.Python['yolobit_ir_blaster_send'] = function (block) {
   var signal_number = block.getFieldValue('MESSAGE');  // Get the selected number (1-10)
-  var code = 'await ir_blaster.send("' + signal_number + '")\n';  // Use the selected number as input
+  var code = 'ir_blaster.send("' + signal_number + '")\n';  // Use the selected number as input
   return code;
 };
 
